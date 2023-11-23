@@ -1,2 +1,30 @@
-<roshun-chart [config]="expenseByMonthChartConfig"></roshun-chart>
-<roshun-chart [config]="expenseByMonthLineChartConfig"></roshun-chart>
+<div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+              <roshun-chart [config]="expenseByMonthChartConfig"></roshun-chart>
+            </div>
+          </div>
+      </div>
+
+
+      <div class="col-6">
+        <div class="card">
+            <div class="card-body">
+              <roshun-chart [config]="expenseByMonthLineChartConfig"></roshun-chart>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+          <div class="card">
+              <div class="card-body">
+                <roshun-chart [config]="expenseByMonthPieChartConfig"></roshun-chart>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>

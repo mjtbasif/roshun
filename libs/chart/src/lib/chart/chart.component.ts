@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Chart from 'chart.js/auto'
 
@@ -10,21 +10,15 @@ import Chart from 'chart.js/auto'
   templateUrl: './chart.component.html',
   styleUrl: './chart.component.scss',
 })
-export class ChartComponent implements OnInit, AfterViewInit {
+
+export class ChartComponent implements AfterViewInit {
   @Input() config: any;
   public chart: any;
-  public divId: any;
-  constructor() {
-
-  }
+  constructor(private renderer: Renderer2, private elRef: ElementRef) {}
   ngAfterViewInit(): void {
     this.createCanvas();
     this.chart = this.createChart(this.config.type, this.config.labels, this.config.data);
   }
-
-  ngOnInit(): void {
-  }
-
   public createChart = (type: any, labels: string[], dataset: { label: string, data: any[] }[], aspectRatio: number = 3.5) => {
     return new Chart(this.config.name, {
       type: type,
@@ -39,19 +33,11 @@ export class ChartComponent implements OnInit, AfterViewInit {
   }
 
   private createCanvas = () => {
-    this.divId = "chart-container";
+    const newDiv = this.renderer.createElement('div');
     let canvas = document.createElement("canvas");
     canvas.id = this.config.name;
-    canvas.width = 400;
-    canvas.height = 200;
-
-    let container = document.getElementById(this.divId);
-
-    if (container) {
-      container.appendChild(canvas);
-    } else {
-      console.error("Container element not found");
-    }
-
+    this.renderer.appendChild(newDiv, canvas);
+    const parentElement = this.elRef.nativeElement;
+    this.renderer.appendChild(parentElement, newDiv);
   }
 }

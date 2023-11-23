@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChartComponent } from '../../utility/chart/chart.component';
-import { ChartConfig, IChartConfig } from '../../utility/chart/contract';
+import { ChartComponent } from '@roshun/chart';
+import { ChartConfig, IChartConfig } from '../../contract/feature-contract';
 
 @Component({
   selector: 'roshun-dashboard',
@@ -13,6 +13,7 @@ import { ChartConfig, IChartConfig } from '../../utility/chart/contract';
 export class DashboardComponent implements OnInit{
   public expenseByMonthChartConfig: IChartConfig = new ChartConfig();
   public expenseByMonthLineChartConfig: IChartConfig = new ChartConfig();
+  public expenseByMonthPieChartConfig: IChartConfig = new ChartConfig();
   private monthsArray: string[] = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
@@ -23,6 +24,7 @@ export class DashboardComponent implements OnInit{
   ngOnInit(): void {
     this.initExpenseByMonthChart();
     this.initExpenseByMonthLineChart();
+    this.initExpenseByMonthPieChart();
   }
 
   private initExpenseByMonthChart = () => {
@@ -49,5 +51,21 @@ export class DashboardComponent implements OnInit{
       tension: 0.1
     }];
     this.expenseByMonthLineChartConfig.labels = this.monthsArray;
+  }
+
+  private initExpenseByMonthPieChart = () => {
+    this.expenseByMonthPieChartConfig.name = "expenseByMonthPieChartConfig";
+    this.expenseByMonthPieChartConfig.type = "pie";
+    this.expenseByMonthPieChartConfig.data = [{
+      label: 'My First Dataset',
+      data: this.expenses,
+      backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
+      ],
+      hoverOffset: 4
+    }];
+    this.expenseByMonthPieChartConfig.labels = this.monthsArray
   }
 }
