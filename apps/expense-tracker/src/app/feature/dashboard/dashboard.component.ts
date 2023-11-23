@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit{
       {
         label: "Expense",
         data: this.expenses,
-        backgroundColor: 'gray'
+        backgroundColor: '#34495E'
       },
     ]
   }
