@@ -57,13 +57,8 @@ export class DashboardComponent implements OnInit{
     this.expenseByMonthPieChartConfig.name = "expenseByMonthPieChartConfig";
     this.expenseByMonthPieChartConfig.type = "pie";
     this.expenseByMonthPieChartConfig.data = [{
-      label: 'My First Dataset',
+      label: 'BDT',
       data: this.expenses,
-      backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(54, 162, 235)',
-        'rgb(255, 205, 86)'
-      ],
       hoverOffset: 4
     }];
     this.expenseByMonthPieChartConfig.labels = this.monthsArray
