@@ -1,4 +1,5 @@
 export interface IChartConfig {
+    name: string;
     type: any,
     labels: string[],
     data: any[],
@@ -6,6 +7,7 @@ export interface IChartConfig {
 }
 
 export class ChartConfig implements IChartConfig {
+    name: string = "";
     type: any = 'bar';
     labels: string[] = [];
     data: any[] = [];

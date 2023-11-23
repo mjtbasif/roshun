@@ -1,5 +1,4 @@
 import { Route } from '@angular/router';
-import { RecordComponent } from './feature/record/record.component';
 import { DashboardComponent } from './feature/dashboard/dashboard.component';
 import { ErrorPageComponent } from './container/error-page/error-page.component';
 
