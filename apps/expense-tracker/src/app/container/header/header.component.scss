@@ -1,0 +1,25 @@
+.header {
+    text-align: center !important;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+/* Container for the icons */
+.icon-container {
+    display: inline-block;
+    border-radius: 50%; /* Create a circular container */
+    padding: 10px; /* Adjust padding as needed */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+    border: 2px solid transparent; /* Initially transparent border */
+  }
+  
+  /* Icons */
+  .icon {
+    font-size: 24px; /* Adjust icon size as needed */
+    transition: color 0.3s ease; /* Smooth transition for icon color */
+  }
+  
+  /* Change icon color on hover */
+  .icon-container:hover .icon {
+    color: #d32e2e; /* Change to your desired color */
+  }
+  
